@@ -31,6 +31,7 @@ const Input = ({ addTodo }) => {
         style={styles.input}
         onSubmitEditing={() => {
           addTodo(input);
+          setinput('');
         }}
       />
     </View>

@@ -2,7 +2,19 @@ import React from 'react';
 import { Text, View, FlatList } from 'react-native';
 import Todo from './Todo';
 
-const TodoList = ({ todos, deleteTodo, doneTodo }) => {
+const TodoList = ({ todos, deleteTodo, doneTodo, typeTodo }) => {
+  const getVisibleTodos = (todos, type) => {
+    switch (type) {
+      case 'All':
+        return todos;
+      case 'Complete':
+        return todos.filter((t) => t.isCheck);
+      case 'Active':
+        return todos.filter((t) => !t.isCheck);
+    }
+  };
+  todos = getVisibleTodos(todos, typeTodo);
+  // console.log(typeTodo);
   return (
     <View>
       <FlatList

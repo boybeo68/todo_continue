@@ -20,12 +20,12 @@ const styles = StyleSheet.create({
   },
 });
 const Todo = ({ todo, doneTodo, deleteTodo }) => {
-  console.log(todo);
   return (
     <View style={styles.container}>
-      <Text style={{ color: todo.isCheck ? 'red' : 'black' }}>
+      <Text
+        style={{ textDecorationLine: todo.isCheck ? 'line-through' : 'none' }}
+      >
         {todo.title}
-        {todo.isCheck ? 'true' : 'false'}
       </Text>
       <View style={styles.action}>
         <Text
